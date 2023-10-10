@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+
+{% block title %}
+
+
+{% endblock title %}
+
+
+{% block navbar %}
+
+    {% include 'components/navbar.html' %}
+
+{% endblock navbar %}
+
+{% block header %}
+    
+    
+
+
+{% endblock header %}
+
+{% block content %}
+
+    
+    {% include 'components/telescope/list.html' %}
+
+    
+
+{% endblock content %}
+
+
+
+
+{% block footer %}
+
+    {% include 'components/footer.html' %}
+
+{% endblock footer %}
+
+{% block javascript %}
+    {% include 'components/scripts.html' %}
+{% endblock javascript %}

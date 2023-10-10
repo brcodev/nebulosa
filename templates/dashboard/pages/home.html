@@ -1,0 +1,44 @@
+{% extends 'basedash.html' %}
+
+{% load static %}
+
+
+{% block title %}
+
+
+{% endblock title %}
+
+
+{% block navbar %}
+
+    {% include 'components/dashboard/navigation/navbar.html' %}
+
+{% endblock navbar %}
+
+{% block header %}
+    
+    {% include 'components/dashboard/navigation/search.html' %}
+
+{% endblock header %}
+
+{% block content %}
+
+
+   
+
+    {% include 'components/dashboard/home.html' %}
+   
+
+{% endblock content %}
+
+
+
+
+{% block footer %}
+
+
+{% endblock footer %}
+
+{% block javascript %}
+    {% include 'components/dashboard/navigation/scripts.html' %}
+{% endblock javascript %}

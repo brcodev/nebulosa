@@ -1,0 +1,58 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en" class="hydrated dark">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noindex, nofollow">
+    <link rel="icon" href="/static/img/favicon.png" type="image/x-icon">
+
+
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.12.3/dist/cdn.min.js"></script>
+
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+
+
+    <!-- Roboto font -->
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,900&display=swap" rel="stylesheet" />
+
+    <!-- Tailwind Elements styles-->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tw-elements/dist/css/tw-elements.min.css" />
+
+    <link rel="stylesheet" href="{% static 'css/output.css' %}">
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script>    
+
+
+    {% block extra_head %}{% endblock extra_head %}
+    <title>{% block title %}{% endblock title %}</title>
+</head>
+
+<!-- https://github.com/trananhtuat/tailwindcss-facebook/blob/main/index.html -->
+
+<body class="bg-gray-100 dark:bg-neutral-950">
+
+
+    
+
+    {% block navbar %}{% endblock navbar %}
+
+    {% block header %}{% endblock header %}
+
+
+    <div class="w-full">
+      
+        {% block content %}{% endblock content %}
+
+
+    </div>
+
+    {% block footer %}{% endblock footer %}
+
+    {% block javascript %}{% endblock javascript %}
+
+</body>
+
+</html>

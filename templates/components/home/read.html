@@ -1,0 +1,168 @@
+{% load static %}
+
+<div class="hidden lg:block">
+
+  <h2 class="text-3xl font-bold mb-12 mt-12 text-center dark:text-neutral-300 ">Noticia de la semana.</h2>
+
+
+<!-- Container for demo purpose -->
+{% for post in news %}
+
+<div class="container lg:my-16 mx-auto md:px-6">
+    <!-- Section: Design Block -->
+    <section class="mb-32">
+      <!-- Jumbotron -->
+      <div class="container mx-auto text-center lg:text-left xl:px-32">
+        <div class="flex grid items-center lg:grid-cols-2">
+          <div class="mb-12 lg:mb-0">
+            <div
+              class="relative z-[1] block rounded-lg bg-[hsla(0,0%,100%,0.55)] px-6 py-12 shadow-[0_2px_15px_-3px_rgba(0,0,0,0.07),0_10px_20px_-2px_rgba(0,0,0,0.04)] backdrop-blur-[30px] dark:bg-[hsla(0,0%,5%,0.55)] dark:shadow-black/20 md:px-12 lg:-mr-14">
+              <h2 class="mb-8 text-3xl font-bold">{{post.title}}</h2>
+              
+
+              <p class="mb-0 text-neutral-500 dark:text-neutral-300">
+                {{post.week_description}}
+                <a href="{{post.category.slug}}/{{post.slug}}" class="text-blue-600" >  Leer más....</a>
+              
+              </p>
+            </div>
+          </div>
+  
+          <div>
+              <a href="{{post.category.slug}}/{{post.slug}}">
+                <img src="{{post.alter_image.url}}"
+                class="w-full rounded-lg shadow-lg dark:shadow-black/20" alt="image" />
+              </a>
+          </div>
+        </div>
+      </div>
+      <!-- Jumbotron -->
+    </section>
+    <!-- Section: Design Block -->
+  </div>
+
+
+  {% endfor %}
+  <!-- Container for demo purpose -->
+
+  <!-- Container for demo purpose -->
+  <h2 class="text-3xl font-bold mb-12 mt-12 text-center dark:text-neutral-300 ">Científico destacado de la semana.</h2>
+
+
+{% for post_week in week %}
+
+
+<div class="container my-24 mx-auto md:px-6">
+    <!-- Section: Design Block -->
+    <section class="mb-32">
+      <!-- Jumbotron -->
+      <div class="container mx-auto text-center lg:text-left xl:px-32">
+        <div class="flex grid items-center lg:grid-cols-2">
+          <div>
+            <a href="{{post_week.category.slug}}/{{post_week.slug}}">
+              <img src="{{post_week.alter_image.url}}"
+              class="w-full rounded-lg shadow-lg dark:shadow-black/20" alt="image" />
+            </a>
+          </div>
+          <div class="mb-12 lg:mb-0">
+            <div
+              class="relative z-[1] block rounded-lg bg-[hsla(0,0%,100%,0.55)] px-6 py-12 shadow-[0_2px_15px_-3px_rgba(0,0,0,0.07),0_10px_20px_-2px_rgba(0,0,0,0.04)] backdrop-blur-[30px] dark:bg-[hsla(0,0%,5%,0.55)] dark:shadow-black/20 md:px-12 lg:-ml-14">
+              <h2 class="mb-8 text-3xl font-bold">{{post_week.title}}</h2>
+             
+              <p class="mb-0 text-neutral-500 dark:text-neutral-300">
+               {{post_week.week_description}}
+               
+                {{post.week_description}}
+                <a href="{{post_week.category.slug}}/{{post_week.slug}}" class="text-blue-600" >  Leer más....</a>
+              
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Jumbotron -->
+    </section>
+    <!-- Section: Design Block -->
+  </div>
+  <!-- Container for demo purpose -->
+</div>
+
+{% endfor %}
+
+
+
+
+
+
+<div class="lg:hidden" >
+
+  <!-- Container for demo purpose -->
+<div class="md:container md:mx-auto mx-4 mt-24 md:px-6">
+  <!-- Section: Design Block -->
+  <section class="text-center">
+    <h2 class="mb-12 pb-4 text-center text-3xl font-bold">Noticias de la semana</h2>
+
+    <div class="grid gap-6 xl:gap-x-12">
+      <div class="mb-6 lg:mb-0">
+        {% for post in news %}
+        <div
+          class="relative block rounded-lg bg-white shadow-[0_2px_15px_-3px_rgba(0,0,0,0.07),0_10px_20px_-2px_rgba(0,0,0,0.04)] dark:bg-neutral-700">
+          <div class="flex">
+            <div
+              class="relative mx-4 -mt-4 w-full overflow-hidden rounded-lg bg-cover bg-no-repeat shadow-[0_2px_15px_-3px_rgba(0,0,0,0.07),0_10px_20px_-2px_rgba(0,0,0,0.04)]"
+              data-te-ripple-init data-te-ripple-color="light">
+              <img src="{{post.alter_image.url}}" class="w-full" />
+              <a href="{{post.category.slug}}/{{post.slug}}">
+                <div
+                  class="absolute top-0 right-0 bottom-0 left-0 h-full w-full overflow-hidden bg-[hsl(0,0%,98.4%,0.15)] bg-fixed opacity-0 transition duration-300 ease-in-out hover:opacity-100">
+                </div>
+              </a>
+            </div>
+          </div>
+          <div class="p-6">
+            <h5 class="mb-2 text-lg font-bold">{{post.title}}</h5>
+            <p>
+              {{post.week_description}}
+            </p>
+          </div>
+        </div>
+      </div>
+      {% endfor %}
+      <h2 class="mb-12 mt-12 pb-4 text-center text-3xl font-bold">Científico destacado de la semana</h2>
+
+      <div class="mb-6 lg:mb-0">
+        {% for post_week in week %}
+        <div
+          class="relative block rounded-lg bg-white shadow-[0_2px_15px_-3px_rgba(0,0,0,0.07),0_10px_20px_-2px_rgba(0,0,0,0.04)] dark:bg-neutral-700">
+          <div class="flex">
+            <div
+              class="relative mx-4 -mt-4 w-full overflow-hidden rounded-lg bg-cover bg-no-repeat shadow-[0_2px_15px_-3px_rgba(0,0,0,0.07),0_10px_20px_-2px_rgba(0,0,0,0.04)]"
+              data-te-ripple-init data-te-ripple-color="light">
+              <img src="{{post_week.alter_image.url}}" class="w-full" />
+              <a href="{{post_week.category.slug}}/{{post_week.slug}}">
+                <div
+                  class="absolute top-0 right-0 bottom-0 left-0 h-full w-full overflow-hidden bg-[hsl(0,0%,98.4%,0.15)] bg-fixed opacity-0 transition duration-300 ease-in-out hover:opacity-100">
+                </div>
+              </a>
+            </div>
+          </div>
+          <div class="p-6">
+            <h5 class="mb-2 text-lg font-bold">{{post_week.title}}</h5>
+            <p>
+              {{post_week.week_description}}
+            </p>
+          </div>
+        </div>
+        {% endfor %}
+      </div>
+    </div>
+  </section>
+  <!-- Section: Design Block -->
+</div>
+<!-- Container for demo purpose -->
+
+</div>
+  
+
+
+  

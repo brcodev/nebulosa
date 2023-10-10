@@ -1,0 +1,221 @@
+{% load static %}
+
+<!-- Navbar start -->
+<nav id="navbar" class="fixed top-0 z-40 h-20 w-full px-4 py-4 flex justify-between items-center bg-white dark:bg-neutral-950">
+	<a class="text-3xl font-bold leading-none" href="{% url 'home' %}">
+		<img src="/static/img/logo.png" alt="logo">
+	</a>
+	<ul class="hidden absolute top-1/2 left-1/2 transform -translate-y-1/2 -translate-x-1/2 lg:flex lg:mx-auto lg:items-center lg:w-auto lg:space-x-6">
+		<li><a id="nav-link" class="block text-sm font-semibold text-gray-400 hover:text-blue-600 rounded" href="{% url 'home' %}">Home</a></li>
+		<li class="text-gray-300">
+			<svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" class="w-4 h-4 current-fill" viewBox="0 0 24 24">
+				<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 5v0m0 7v0m0 7v0m0-13a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2z" />
+			</svg>
+		</li>
+		<li><a id="nav-link" class="block text-sm font-semibold text-gray-400 hover:text-blue-600 rounded" href="{% url 'scientist' %}">Científicos</a></li>
+		<li class="text-gray-300">
+			<svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" class="w-4 h-4 current-fill" viewBox="0 0 24 24">
+				<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 5v0m0 7v0m0 7v0m0-13a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2z" />
+			</svg>
+		</li>
+		<li><a id="nav-link" class="block text-sm font-semibold text-gray-400 hover:text-blue-600 rounded" href="{% url 'observatories' %}">Observatorios</a></li>
+		<li class="text-gray-300">
+			<svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" class="w-4 h-4 current-fill" viewBox="0 0 24 24">
+				<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 5v0m0 7v0m0 7v0m0-13a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2z" />
+			</svg>
+		</li>
+		<li><a id="nav-link" class="block text-sm font-semibold text-gray-400 hover:text-blue-600 rounded" href="{% url 'telescopes' %}">Telescopios</a></li>
+		<li class="text-gray-300">
+			<svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" class="w-4 h-4 current-fill" viewBox="0 0 24 24">
+				<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 5v0m0 7v0m0 7v0m0-13a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2z" />
+			</svg>
+		</li>
+		<li><a id="nav-link" class="block text-sm font-semibold text-gray-400 hover:text-blue-600 rounded" href="{% url 'news' %}">Noticias</a></li>
+	</ul>
+	<div class="items-center hidden lg:inline-flex">
+		<i class='bx bx-moon mr-2 text-xl' ></i>
+		<label class="relative inline-flex items-center cursor-pointer">
+		
+			<input type="checkbox" value="" class="sr-only peer" id="desktop-toggle" onclick="toggleDark()">
+			<div class="w-14 h-7 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300 dark:peer-focus:ring-blue-800 rounded-full peer dark:bg-gray-700 peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-0.5 after:left-[4px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-6 after:w-6 after:transition-all dark:border-gray-600 peer-checked:bg-blue-600"></div>
+			<i class='bx bx-sun ml-2 text-xl'></i>
+		</label>
+	</div>
+    <button id="btnSidebarToggler" type="button" class="py-2 lg:hidden text-2xl text-blue-600 dark:text-white dark:hover:text-gray-200">
+        <i id="navClosed" class='bx bx-menu text-4xl'></i>
+        <i id="navOpen" class='bx bx-x hidden text-4xl'></i>
+    </button>
+</nav>
+<!-- Navbar end -->
+
+<!-- Sidebar start-->
+<div id="containerSidebar" class="z-40">
+    <div class="navbar-menu relative z-40">
+        <nav id="sidebar"
+            class="fixed top-0 left-0 bottom-0 flex w-3/4 -translate-x-full flex-col overflow-y-auto lg:hidden bg-white dark:bg-neutral-950 border-r opacity-90 pt-6 pb-8 sm:max-w-xs lg:w-80">
+            <!-- one category / navigation group -->
+            <div class="px-4 pb-6">
+				<ul>
+					<li class="mb-1">
+						<a id="nav-mobile" class="block p-4 text-sm font-semibold text-gray-400 hover:bg-blue-50 hover:text-blue-600 rounded" href="{% url 'home' %}">Home</a>
+					</li>
+					<li class="mb-1">
+						<a id="nav-mobile" class="block p-4 text-sm font-semibold text-gray-400 hover:bg-blue-50 hover:text-blue-600 rounded" href="{% url 'scientist' %}">Científicos</a>
+					</li>
+					<li class="mb-1">
+						<a id="nav-mobile" class="block p-4 text-sm font-semibold text-gray-400 hover:bg-blue-50 hover:text-blue-600 rounded" href="{% url 'observatories' %}">Observatorios</a>
+					</li>
+					<li class="mb-1">
+						<a id="nav-mobile" class="block p-4 text-sm font-semibold text-gray-400 hover:bg-blue-50 hover:text-blue-600 rounded" href="{% url 'telescopes' %}">Telescopios</a>
+					</li>
+					<li class="mb-1">
+						<a id="nav-mobile" class="block p-4 text-sm font-semibold text-gray-400 hover:bg-blue-50 hover:text-blue-600 rounded" href="{% url 'news' %}">Noticias</a>
+					</li>
+				</ul> 
+            </div>
+            <!-- navigation group end-->
+
+            <!-- example copies start -->
+            <div class="px-4 pb-6">
+				<div class="pt-4 text-center">
+					<div class="items-center inline-flex">
+						<i class='bx bx-moon mr-2 text-xl' ></i>
+						<label class="relative inline-flex items-center cursor-pointer">
+							<input type="checkbox" value="" id="mobile-toggle" class="sr-only peer" onclick="toggleDark()">
+							<div class="w-14 h-7 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300 dark:peer-focus:ring-blue-800 rounded-full peer dark:bg-gray-700 peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-0.5 after:left-[4px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-6 after:w-6 after:transition-all dark:border-gray-600 peer-checked:bg-blue-600"></div>
+							<i class='bx bx-sun ml-2 text-xl'></i>
+						</label>
+					</div>
+				</div>
+				<p class="my-4 text-xs text-center text-gray-400">
+					<span>nebulosa © 2023</span>
+				</p>
+            </div>
+
+            <div class="px-4 pb-6">
+                
+            </div>
+            <!-- example copies end -->
+        </nav>
+    </div>
+    <div class="mx-auto lg:ml-80"></div>
+</div>
+<!-- Sidebar end -->
+
+
+
+<script type="text/javascript">
+    document.addEventListener("DOMContentLoaded", () => {
+    const navbar = document.getElementById("navbar");
+    const sidebar = document.getElementById("sidebar");
+    const btnSidebarToggler = document.getElementById("btnSidebarToggler");
+    const navClosed = document.getElementById("navClosed");
+    const navOpen = document.getElementById("navOpen");
+
+    btnSidebarToggler.addEventListener("click", (e) => {
+        e.preventDefault();
+        sidebar.classList.toggle("show");
+        navClosed.classList.toggle("hidden");
+        navOpen.classList.toggle("hidden");
+		console.log("click mobile btn")
+    });
+
+    sidebar.style.top = parseInt(navbar.clientHeight) - 1 + "px";
+
+    // Agregar un manejador de eventos para cerrar el menú al hacer clic fuera de él
+    document.addEventListener("click", (e) => {
+		
+        if (
+			sidebar.classList.contains("show") &&
+            e.target !== sidebar &&
+            e.target != btnSidebarToggler &&
+			e.target !== navClosed &&
+            !sidebar.contains(e.target) 
+           
+        ) {
+            sidebar.classList.toggle("show");
+            navClosed.classList.toggle("hidden");
+            navOpen.classList.toggle("hidden");
+			
+        	
+        }
+    });
+});
+</script>
+
+
+
+
+<script>
+
+
+	document.querySelectorAll('#nav-link').forEach(link => {
+		if(link.href === window.location.href){
+		  link.setAttribute('aria-current', 'page')
+		}
+	  })
+
+
+</script>
+
+<script>
+
+	document.querySelectorAll('#nav-mobile').forEach(link => {
+		if(link.href === window.location.href){
+		  link.setAttribute('aria-current', 'page')
+		}
+	  })
+
+
+</script>
+
+<script>
+	let desktopToggle = document.getElementById("desktop-toggle");
+	let mobileToggle = document.getElementById("mobile-toggle");
+  
+	const toggleDark = () => {
+	  const isDarkMode = document.documentElement.classList.toggle("dark");
+	  localStorage.setItem("darkMode", isDarkMode ? "enabled" : "disabled");
+  
+	  // Lógica para ajustar el estado de los toggles cuando se cambia el tema
+	  if (isDarkMode) {
+		desktopToggle.checked = false;
+		mobileToggle.checked = false;
+	  } else {
+		desktopToggle.checked = true;
+		mobileToggle.checked = true;
+	  }
+	};
+  
+	// Comprueba si hay una preferencia almacenada en el localStorage
+	const savedDarkModePreference = localStorage.getItem("darkMode");
+  
+	// Si se ha almacenado una preferencia, establece el tema y los toggles en consecuencia
+	if (savedDarkModePreference === "disabled") {
+	  document.documentElement.classList.remove("dark");
+	  desktopToggle.checked = true;
+	  mobileToggle.checked = true;
+	} else {
+	  document.documentElement.classList.add("dark");
+	  desktopToggle.checked = false;
+	  mobileToggle.checked = false;
+	}
+  
+	// Añade event listeners para los toggles para mantenerlos sincronizados
+	desktopToggle.addEventListener("change", () => {
+	  if (desktopToggle.checked) {
+		mobileToggle.checked = true;
+		
+	  }
+	});
+  
+	mobileToggle.addEventListener("change", () => {
+	  if (mobileToggle.checked) {
+		desktopToggle.checked = true;
+		
+	  }
+	});
+  </script>
+  
+ 
+  

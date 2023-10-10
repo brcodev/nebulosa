@@ -1,0 +1,60 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noindex, nofollow">
+
+    
+
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.12.3/dist/cdn.min.js"></script>
+
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+
+
+    <!-- Roboto font -->
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,900&display=swap" rel="stylesheet" />
+
+    <!-- Tailwind Elements styles-->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tw-elements/dist/css/tw-elements.min.css" />
+
+    <link rel="stylesheet" href="{% static 'css/output.css' %}">
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script>    
+
+
+    {% block extra_head %}{% endblock extra_head %}
+    <title>{% block title %}{% endblock title %}</title>
+</head>
+
+<!-- https://github.com/trananhtuat/tailwindcss-facebook/blob/main/index.html -->
+
+<body class="bg-gray-100">
+
+
+    {% block header %}{% endblock header %}
+
+    {% block navbar %}{% endblock navbar %}
+
+
+
+    <div class="ml-auto mb-6 lg:w-[75%] xl:w-[80%] 2xl:w-[85%] mt-20">
+        
+
+        {% block content %}{% endblock content %}
+
+
+    </div>
+
+    {% block footer %}{% endblock footer %}
+
+    {% block javascript %}
+    
+    {% endblock javascript %}
+
+</body>
+
+</html>

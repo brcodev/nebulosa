@@ -1,0 +1,75 @@
+{% extends 'basedash.html' %}
+
+{% load static %}
+
+
+{% block title %}
+
+
+{% endblock title %}
+
+
+{% block navbar %}
+
+{% include 'components/dashboard/navigation/navbar.html' %}
+
+{% endblock navbar %}
+
+{% block header %}
+
+{% include 'components/dashboard/navigation/search.html' %}
+
+{% endblock header %}
+
+{% block content %}
+
+
+<!-- for messages -->
+<div class="container">
+    {% if messages %}
+    {% for message in messages %}
+    <div class="alert alert-{{ message.tags }} alert-dismissible fade show" role="alert">
+        {{message}}
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+    {% endfor %}
+    {% endif %}
+</div>
+
+<!-- form -->
+
+{% load tailwind_filters %}
+{% load crispy_forms_tags %}
+
+<div class="mx-5 my-5 ">
+    <form action="{% url 'create' %}" method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{ form.media}}
+        {{ form|crispy }}
+        <button type="submit"
+            class="inline-block rounded-full bg-success px-6 pb-2 pt-2.5 text-xs font-medium uppercase leading-normal text-white shadow-[0_4px_9px_-4px_#14a44d] transition duration-150 ease-in-out hover:bg-success-600 hover:shadow-[0_8px_9px_-4px_rgba(20,164,77,0.3),0_4px_18px_0_rgba(20,164,77,0.2)] focus:bg-success-600 focus:shadow-[0_8px_9px_-4px_rgba(20,164,77,0.3),0_4px_18px_0_rgba(20,164,77,0.2)] focus:outline-none focus:ring-0 active:bg-success-700 active:shadow-[0_8px_9px_-4px_rgba(20,164,77,0.3),0_4px_18px_0_rgba(20,164,77,0.2)] dark:shadow-[0_4px_9px_-4px_rgba(20,164,77,0.5)] dark:hover:shadow-[0_8px_9px_-4px_rgba(20,164,77,0.2),0_4px_18px_0_rgba(20,164,77,0.1)] dark:focus:shadow-[0_8px_9px_-4px_rgba(20,164,77,0.2),0_4px_18px_0_rgba(20,164,77,0.1)] dark:active:shadow-[0_8px_9px_-4px_rgba(20,164,77,0.2),0_4px_18px_0_rgba(20,164,77,0.1)]">
+            Crear
+        </button>
+    </form>
+</div>
+
+
+
+{% endblock content %}
+
+
+
+
+{% block footer %}
+
+
+{% endblock footer %}
+
+{% block javascript %}
+
+    {% include 'components/dashboard/navigation/scripts.html' %}
+
+
+{% endblock javascript %}

@@ -1,0 +1,26 @@
+{% load static %}
+
+
+<footer class="bg-white rounded-lg shadow dark:bg-neutral-950 mb-0">
+    <div class="w-full mx-auto max-w-screen-xl p-4 md:flex md:items-center md:justify-between">
+      <span class="text-sm text-gray-500 sm:text-center dark:text-gray-400">© 2023 <a href="{% url 'home' %}" class="hover:underline">Nebulosa</a>. Divulgación científica.
+    </span>
+    <ul class="flex flex-wrap items-center mt-3 text-sm font-medium text-gray-500 dark:text-gray-400 sm:mt-0">
+        <li>
+            <a href="{% url 'home' %}" class="mr-4 hover:underline md:mr-6 ">Home</a>
+        </li>
+        <li>
+            <a href="{% url 'scientist' %}" class="mr-4 hover:underline md:mr-6">Científicos</a>
+        </li>
+        <li>
+            <a href="{% url 'observatories' %}" class="mr-4 hover:underline md:mr-6">Observatorios</a>
+        </li>
+        <li>
+            <a href="{% url 'telescopes' %}" class="mr-4 hover:underline md:mr-6">Telescopios</a>
+        </li>
+        <li>
+            <a href="{% url 'news' %}" class="hover:underline">Noticias</a>
+        </li>
+    </ul>
+    </div>
+</footer>

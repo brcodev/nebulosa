@@ -1,0 +1,164 @@
+<!-- Container for demo purpose -->
+<div class="md:container md:my-24 my-16 px-6 mx-auto">
+
+  <!-- Section: Design Block -->
+  <section class="mb-10 text-gray-800 text-center lg:text-left">
+    <div class="px-6 py-12 md:px-12" style=" overflow: hidden; ">
+      <div class="grid lg:grid-cols-2 gap-12 items-center">
+        <div class="mt-12 lg:mt-0 mr-5 ">
+          <h1 class="text-3xl font-bold mb-4 dark:text-neutral-300 ">Dilatación del Tiempo</h1>
+
+          <p class="mb-4 dark:text-neutral-300 ">
+
+            La teoría de la relatividad especial establece que a medida que un objeto se acelera y se acerca a la velocidad de la luz (c), su reloj interno parece avanzar más lentamente desde el punto de vista de un observador en reposo en comparación con un observador que viaja a la misma velocidad. Esto significa que para un objeto en movimiento rápido, el tiempo parece transcurrir más lentamente en relación con un objeto en reposo.
+
+Este fenómeno de dilatación del tiempo se ha demostrado experimentalmente y tiene importantes implicaciones en la física.
+
+
+          </p>
+
+          <h2 class="text-2xl font-bold mb-2 dark:text-neutral-300 ">Fórmula:</h2>
+
+          <p class="mb-4 dark:text-neutral-300 ">La fórmula utilizada para calcular la dilatación del tiempo es:</p>
+
+          <div class="mb-4 dark:text-neutral-300 ">
+            <p class="text-xl font-bold text-center">
+              <span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML" display="inline">
+                  <semantics>
+                    <mrow>
+                      <mstyle mathsize="2em">
+                        <mi mathvariant="normal">Δ</mi>
+                        <msup>
+                          <mi>t</mi>
+                          <mo mathvariant="normal" lspace="0em" rspace="0em">′</mo>
+                        </msup>
+                        <mo>=</mo>
+                        <mfrac>
+                          <mrow>
+                            <mi mathvariant="normal">Δ</mi>
+                            <mi>t</mi>
+                          </mrow>
+                          <msqrt>
+                            <mrow>
+                              <mn>1</mn>
+                              <mo>−</mo>
+                              <msup>
+                                <mi>v</mi>
+                                <mn>2</mn>
+                              </msup>
+                              <mi mathvariant="normal">/</mi>
+                              <msup>
+                                <mi>c</mi>
+                                <mn>2</mn>
+                              </msup>
+                            </mrow>
+                          </msqrt>
+                        </mfrac>
+                      </mstyle>
+                    </mrow>
+                    <annotation encoding="application/x-tex">\small
+                      \Delta t' = \frac{\Delta t}{\sqrt{1 - v^2 / c^2}}
+                    </annotation>
+                  </semantics>
+                </math></span>
+            </p>
+          </div>
+
+          <p class="mb-4 dark:text-neutral-300 ">Donde:</p>
+          <ul class="list-disc pl-6 dark:text-neutral-300 ">
+            <li>Δt': Tiempo medido desde un observador fuera del objeto en movimiento.</li>
+            <li>Δt : Tiempo medido desde el objeto en movimiento. </li>
+            <li>v: Velocidad del objeto.</li>
+            <li>c: Velocidad de la luz en el vacío (aproximadamente 300.000 <span class="font-bold">kilometros por segundo</span>  ).</li>
+          </ul>
+
+          <!-- Créditos -->
+          <p class="mt-8 text-gray-600 dark:text-neutral-300 ">Esta sección es solo una introducción básica a la dilatación del tiempo en la
+            teoría de la relatividad de Einstein.</p>
+
+        </div>
+      
+
+          <div class="login-box bg-white bg-opacity-80 p-8 rounded-lg shadow-lg">
+            <h2 class="text-2xl font-bold text-center dark:text-neutral-300  mb-4">Calcular la dilatación del tiempo:</h2>
+            <form id="timeDilationForm">
+              <div class="user-box mb-4">
+                <input type="number" id="travelerTime" name="travelerTime" required min="1"
+                  class="w-full py-2 px-3 rounded-lg border border-gray-400 focus:outline-none focus:border-blue-500">
+                <label for="travelerTime" class="text-gray-600">Tiempo de viaje (años)</label>
+                <p id="travelerTimeError" class="text-red-500 hidden text-xs mt-[-1rem]">El tiempo del Observador Viajero no es válido. Debe ser un número positivo.</p>
+              </div>
+              <div class="user-box mb-4">
+                <input type="number" id="velocityPercentage" name="velocityPercentage" required min="1" max="99"
+                  class="w-full py-2 px-3 rounded-lg border border-gray-400 focus:outline-none focus:border-blue-500">
+                <label for="velocityPercentage" class="text-gray-600">Porcentaje de la Velocidad de la Luz (%)</label>
+                <p id="velocityPercentageError" class="text-red-500 hidden text-xs mt-[-1rem]">El porcentaje de la velocidad de la luz no es válido. Debe estar entre 1 y 99.</p>
+              </div>
+              <a href="#" id="calculateButton" class="mt-0 p-0">
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                Calcular
+              </a>
+            </form>
+            <span id="timeDilationResult" class="text-lg font-semibold text-white"></span>
+          </div>
+
+        
+      </div>
+    </div>
+     
+
+  </section>
+  <!-- Section: Design Block -->
+
+</div>
+<!-- Container for demo purpose -->
+
+
+<script>
+  // Función para mostrar mensajes de error
+  function showError(elementId, message) {
+      const errorElement = document.getElementById(elementId);
+      errorElement.textContent = message;
+      errorElement.classList.remove('hidden');
+  }
+
+  // Función para ocultar mensajes de error
+  function hideError(elementId) {
+      const errorElement = document.getElementById(elementId);
+      errorElement.textContent = '';
+      errorElement.classList.add('hidden');
+  }
+
+  document.getElementById('calculateButton').addEventListener('click', function (e) {
+      e.preventDefault();
+      
+      // Ocultar mensajes de error anteriores
+      hideError('travelerTimeError');
+      hideError('velocityPercentageError');
+      
+      const travelerTime = parseFloat(document.getElementById('travelerTime').value);
+      const velocityPercentage = parseFloat(document.getElementById('velocityPercentage').value);
+      
+      if (isNaN(travelerTime) || travelerTime <= 0) {
+          showError('travelerTimeError', 'El tiempo de viaje no es válido, debe ser mayor a 0.');
+          return;
+      }
+      
+      if (isNaN(velocityPercentage) || velocityPercentage < 1 || velocityPercentage > 99) {
+          showError('velocityPercentageError', 'Porcentaje de la velocidad de la luz no válido. Debe estar entre 1 y 99.');
+          return;
+      }
+      
+      // Calcula la dilatación del tiempo
+      const speedOfLight = 299792458; // m/s (velocidad de la luz en el vacío)
+      const velocity = velocityPercentage / 100 * speedOfLight;
+      const timeDilation = travelerTime / Math.sqrt(1 - (velocity ** 2 / speedOfLight ** 2));
+      
+      // Muestra el resultado
+      const resultElement = document.getElementById('timeDilationResult');
+      resultElement.textContent = `El tiempo transcurrido, medido por el observador que no esta viajando, es de: ${timeDilation.toFixed(5)} años.`;
+  });
+</script>

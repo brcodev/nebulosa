@@ -1,0 +1,10 @@
+package-lock.json
+node_modules
+venv
+.venv
+db.sqlite3
+media
+core/.env
+.env
+productionfiles
+

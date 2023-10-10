@@ -1,0 +1,14 @@
+django==4.2.5
+argon2-cffi
+django-cors-headers
+django-environ
+pillow
+psycopg2
+django-crispy-forms
+crispy-tailwind
+django-ckeditor
+django-tailwind
+sqlparse
+python-dateutil
+django-environ
+gunicorn
