@@ -7,4 +7,6 @@ media
 core/.env
 .env
 productionfiles
+static/img/home.png
+static/img/dashboard.png
 
