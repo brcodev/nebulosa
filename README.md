@@ -7,7 +7,7 @@
 
 
 
-Nebulosa es un proyecto educativo que tiene como finalidad el crear un espacio mas en la web donde estudiantes, aficionados y profesionales del campo de la astronomía y física puedan leer información relacionada al ámbito, ya sea con resúmenes biográficos de destacados científicos, noticias, artículos sobre ciencia y más. Para el desarrollo de esta aplicación web se uso Python como lenguaje de programación principal mediante el framework Django, PostreSQL como gestor de base de datos y JavaScript para funcionalidades en el frontend, mientras que para el diseño de este ultimo se utilizo HTML y Tailwind CSS. La aplicación fue desplegada en un servidor Nginx dentro de la arquitectura Cloud de AWS.
+Nebulosa es un proyecto educativo que tiene como finalidad el crear un espacio más en la web donde estudiantes, aficionados y profesionales del campo de la astronomía y física puedan leer información relacionada al ámbito, ya sea con resúmenes biográficos de destacados científicos, noticias, artículos sobre ciencia y más. Para el desarrollo de esta aplicación web se uso Python como lenguaje de programación principal mediante el framework Django, PostgreSQL como gestor de base de datos y JavaScript para funcionalidades en el frontend, mientras que para el diseño de este ultimo se utilizo HTML y Tailwind CSS. La aplicación fue desplegada en un servidor Nginx dentro de la arquitectura Cloud de AWS.
 
 ![nebulosa - home](https://github.com/brcodev/nebulosa/blob/main/static/img/home.png)
 
