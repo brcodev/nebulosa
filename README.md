@@ -3,7 +3,7 @@
 
 ## Descripción.
 
-[https://www.nebulosa.info](https://www.nebulosa.info)
+[https://www.nebulosa.live](https://www.nebulosa.live)
 
 
 
